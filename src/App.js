@@ -15,13 +15,10 @@ const history = createBrowserHistory()
 function App() {
   return (
     <div>
-      <Page>
-        <Title isSize="1">{ process.env.REACT_APP_SITE_TITLE }</Title>
-        <Router history={history}>
-          <Route exact path="/" component={Index} />
-          <Route exact path="/about" component={About} />
-        </Router>
-      </Page>
+      <Router history={history}>
+        <Route exact path="/" component={Index} />
+        <Route exact path="/about" component={About} />
+      </Router>
     </div>
   )
 }
