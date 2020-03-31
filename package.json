@@ -11,6 +11,7 @@
     "bulma": "^0.8.1",
     "dotenv": "^8.2.0",
     "history": "^4.10.1",
+    "node-sass": "^4.13.1",
     "ol": "^6.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -38,5 +39,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "sass-loader": "^8.0.2"
+  }
 }
