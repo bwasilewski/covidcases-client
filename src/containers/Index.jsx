@@ -5,6 +5,7 @@ import CovidCard from '../components/CovidCard'
 import { geoLocateUser, getCovidByAddress } from '../events'
 import { InitMap } from '../events/maps'
 import { Columns, Column } from 'bloomer'
+import { Helmet } from 'react-helmet'
 
 const Index = props => {
   const [center, setCenter] = useState(null)
@@ -37,6 +38,9 @@ const Index = props => {
 
   return (
     <Page>
+      <Helmet>
+        <title>covidcases.io</title>
+      </Helmet>
       <Columns>
         <Column isSize="3/4">
           <div id="map" style={{'width': '100%', 'height': '400px'}} />
