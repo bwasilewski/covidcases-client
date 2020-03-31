@@ -1,6 +1,5 @@
 import React from 'react'
 import dotenv from 'dotenv'
-import './App.css'
 import About from './containers/About'
 import Index from './containers/Index'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
