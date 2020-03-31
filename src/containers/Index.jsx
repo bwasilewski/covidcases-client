@@ -8,7 +8,6 @@ import { Columns, Column } from 'bloomer'
 import { Helmet } from 'react-helmet'
 
 const Index = props => {
-  const [center, setCenter] = useState(null)
   const [geo, setGeo] = useState(null)
   const [covid, setCovid] = useState(null)
 
@@ -19,7 +18,6 @@ const Index = props => {
   }
   
   const locationSuccess = async position => {
-    setCenter([position.coords.longitude, position.coords.latitude])
     const geoResponse = await geoLocateUser(position)
     const covidResponse = await getCovidByAddress(geoResponse.display_name)
     setGeo(geoResponse)
