@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Page from '../components/Page'
-import PageHeader from '../components/PageHeader'
-import OpenMap from '../components/OpenMap'
-import axios from 'axios'
+import GeoCard from '../components/GeoCard'
+import CovidCard from '../components/CovidCard'
+import { geoLocateUser, getCovidByAddress } from '../events'
+import { InitMap } from '../events/maps'
+import { Columns, Column } from 'bloomer'
 
 const Index = props => {
   const [center, setCenter] = useState(null)
+  const [geo, setGeo] = useState(null)
+  const [covid, setCovid] = useState(null)
 
   const locationOptions = {
     enableHighAccuracy: true,
@@ -13,11 +17,14 @@ const Index = props => {
     maximumAge: 0
   }
   
-  const locationSuccess = position => {
+  const locationSuccess = async position => {
     setCenter([position.coords.longitude, position.coords.latitude])
-    axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}&addressdetails=1`)
-      .then(response => console.log('Response: ', response.data))
-      .catch(error => console.error(error)) 
+    const geoResponse = await geoLocateUser(position)
+    const covidResponse = await getCovidByAddress(geoResponse.display_name)
+    setGeo(geoResponse)
+    setCovid(covidResponse)
+
+    InitMap([position.coords.longitude, position.coords.latitude], 10)
   }
 
   const locationFailure = error => console.error(error)
@@ -30,7 +37,15 @@ const Index = props => {
 
   return (
     <Page>
-      { center !== null && <OpenMap center={center} zoom={7} /> }
+      <Columns>
+        <Column isSize="3/4">
+          <div id="map" style={{'width': '100%', 'height': '400px'}} />
+        </Column>
+        <Column>
+        { geo !== null && <GeoCard title="Geography Data" data={geo} /> }
+        { covid !== null && <CovidCard title="Covid Data" data={covid} /> }
+        </Column>
+      </Columns>
     </Page>
   )
 }
