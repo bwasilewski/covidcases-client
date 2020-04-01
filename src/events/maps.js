@@ -63,6 +63,10 @@ export const InitMap = (center, zoom) => {
 
   map.addOverlay(popup)
 
+  document.getElementById('map').addEventListener('click', (ev) => {
+    console.log('Click: ', ev)
+  })
+
 
   // display popup on click
   // map.on('click', function(evt) {

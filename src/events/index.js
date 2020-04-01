@@ -8,6 +8,22 @@ export const geoLocateUser = position => {
   })
 }
 
+export const geoLocateByZip = zipcode => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const locationData = await axios.get(`https://api.covidnow.com/v1/local/geocoding?address=${zipcode}`)
+      console.log('Loc Data: ', locationData)
+      const geoData = await geoLocateUser({
+        coords: { 
+          latitude: locationData.data.lat,
+          longitude: locationData.data.lng
+        }
+      })
+      resolve(geoData)
+    } catch (error) { reject(error) }
+  })
+}
+
 export const getCovidByAddress = address => {
   return new Promise((resolve, reject) => {
     axios.get(`https://api.covidnow.com/v1/local/finder?address=${address}`)
