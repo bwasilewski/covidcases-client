@@ -40,12 +40,12 @@ const Index = props => {
         <title>covidcases.io</title>
       </Helmet>
       <Columns>
-        <Column isSize="3/4">
-          <div id="map" style={{'width': '100%', 'height': '400px'}} />
-        </Column>
         <Column>
-        { geo !== null && <GeoCard title="Geography Data" data={geo} /> }
-        { covid !== null && <CovidCard title="Covid Data" data={covid} /> }
+          { geo !== null && <GeoCard title="Geography Data" data={geo} /> }
+          { covid !== null && <CovidCard title="Covid Data" data={covid} /> }
+        </Column>
+        <Column isSize="2/3">
+          <div id="map" style={{'width': '100%', 'height': '600px'}}><div id="popup"></div></div>
         </Column>
       </Columns>
     </Page>
