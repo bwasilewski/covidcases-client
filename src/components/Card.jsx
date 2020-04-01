@@ -12,9 +12,11 @@ import {
 const CardComponent = props => {
   return (
     <Card>
-      <CardHeader>
-        <CardHeaderTitle>{ props.title }</CardHeaderTitle>
-      </CardHeader>
+      { props.title && (
+        <CardHeader>
+          <CardHeaderTitle>{ props.title }</CardHeaderTitle>
+        </CardHeader>
+      )}
       <CardContent>
         { props.children }
       </CardContent>
