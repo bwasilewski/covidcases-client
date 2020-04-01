@@ -8,6 +8,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { Helmet } from 'react-helmet'
 
+import { GeoProvider } from './contexts'
+
+
 
 dotenv.config()
 const history = createBrowserHistory()
@@ -15,15 +18,17 @@ const history = createBrowserHistory()
 function App() {
   return (
     <>
-      <Helmet>
-        <link rel="icon" type="image/png" href="favicon.png" sizes="16x16" />
-      </Helmet>
-      <Router history={history}>
-        <Header />
-        <Route exact path="/" component={Index} />
-        <Route exact path="/about" component={About} />
-        <Footer />
-      </Router>
+      <GeoProvider>
+        <Helmet>
+          <link rel="icon" type="image/png" href="favicon.png" sizes="16x16" />
+        </Helmet>
+        <Router history={history}>
+          <Header />
+          <Route exact path="/" component={Index} />
+          <Route exact path="/about" component={About} />
+          <Footer />
+        </Router>
+      </GeoProvider>
     </>
   )
 }
