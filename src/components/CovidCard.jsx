@@ -20,19 +20,24 @@ const CovidCard = props => {
         </thead>
         <tbody>
           <tr>
-            <td>Confirmed</td>
+            <td><small>Confirmed</small></td>
             <td>{ county.confirmed }</td>
             <td>{ state.confirmed }</td>
           </tr>
           <tr>
-            <td>Deaths</td>
+            <td><small>Deaths</small></td>
             <td>{ county.deaths }</td>
             <td>{ state.deaths }</td>
           </tr>
           <tr>
-            <td>Recovered</td>
+            <td><small>Recovered</small></td>
             <td>{ county.recovered }</td>
             <td>{ state.recovered }</td>
+          </tr>
+          <tr>
+            <td><small>Affected Counties</small></td>
+            <td></td>
+            <td>{ state.affectedCounties }</td>
           </tr>
         </tbody>
       </Table>
