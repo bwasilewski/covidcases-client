@@ -9,7 +9,7 @@ const CovidCard = props => {
   const { county, state } = props.data.cases
 
   return (
-    <Card title="Covid-19 Data">
+    <Card>
       <Table>
         <thead>
           <tr>

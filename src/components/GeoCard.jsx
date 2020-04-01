@@ -9,7 +9,7 @@ const GeoCard = props => {
   console.log('Geo Data: ', props.data)
 
   return (
-    <Card title="Geography Data">
+    <Card>
       <Table>
         <tbody>
           <tr>
