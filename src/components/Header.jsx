@@ -30,6 +30,9 @@ const AppFooter = props => {
             </NavbarStart>
             <NavbarEnd>
               <NavbarItem>
+                <Link to="/">Home</Link>
+              </NavbarItem>
+              <NavbarItem>
                 <Link to="/about">About</Link>
               </NavbarItem>
             </NavbarEnd>
