@@ -1,1 +1,33 @@
 @import './node_modules/bulma/bulma.sass';
+
+.ol-rotate {
+  display: none;
+}
+
+.ol-zoom {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+.ol-zoom-in {
+  @extend .button;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  opacity: .6;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.ol-zoom-out {
+  @extend .button;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  opacity: .6;
+
+  &:hover {
+    opacity: 1;
+  }
+}
