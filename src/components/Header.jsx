@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   Container, 
@@ -14,8 +14,11 @@ import {
   NavbarEnd,
   NavbarLink,
   Title } from 'bloomer'
+  import { GeoContext } from '../contexts/geography'
 
 const AppFooter = props => {
+  const [geo, setGeo] = useContext(GeoContext)
+  geo !== null && console.log('Geo: ', geo)
   return (
     <header>
       <Container>
@@ -29,6 +32,7 @@ const AppFooter = props => {
             <NavbarStart>              
             </NavbarStart>
             <NavbarEnd>
+              { geo !== null && <NavbarItem>{ geo.address.county }, { geo.address.state }</NavbarItem> }
               <NavbarItem>
                 <Link to="/">Home</Link>
               </NavbarItem>
