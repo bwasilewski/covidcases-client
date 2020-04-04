@@ -9,28 +9,26 @@ const GeoCard = props => {
   console.log('Geo Data: ', props.data)
 
   return (
-    <Card>
-      <Table>
-        <tbody>
-          <tr>
-            <td><small>County</small></td>
-            <td>{ address.county }</td>            
-          </tr>
-          <tr>
-            <td><small>State</small></td>
-            <td>{ address.state }</td>
-          </tr>
-          <tr>
-            <td><small>Postal Code</small></td>
-            <td>{ address.postcode }</td>
-          </tr>
-          <tr>
-            <td><small>Country</small></td>
-            <td>{ address.country }</td>
-          </tr>
-        </tbody>
-      </Table>
-    </Card>
+    <Table isFullWidth={true}>
+      <tbody>
+        <tr>
+          <td><small>County</small></td>
+          <td>{ address.county }</td>            
+        </tr>
+        <tr>
+          <td><small>State</small></td>
+          <td>{ address.state }</td>
+        </tr>
+        <tr>
+          <td><small>Postal Code</small></td>
+          <td>{ address.postcode }</td>
+        </tr>
+        <tr>
+          <td><small>Country</small></td>
+          <td>{ address.country }</td>
+        </tr>
+      </tbody>
+    </Table>
   )
 }
 

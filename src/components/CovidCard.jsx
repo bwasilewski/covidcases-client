@@ -10,7 +10,7 @@ const CovidCard = props => {
 
   return (
     <Card>
-      <Table>
+      <Table isFullWidth={true}>
         <thead>
           <tr>
             <th></th>
