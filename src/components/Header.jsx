@@ -18,7 +18,7 @@ import {
 
 const AppFooter = props => {
   const [geo, setGeo] = useContext(GeoContext)
-  geo !== null && console.log('Geo: ', geo)
+  
   return (
     <header>
       <Container>

@@ -1,12 +1,8 @@
 import React from 'react'
-import Card from './Card'
-import {
-  Table, 
-  Title } from 'bloomer'
+import { Table } from 'bloomer'
 
 const GeoCard = props => {
   const { address } = props.data
-  console.log('Geo Data: ', props.data)
 
   return (
     <Table isFullWidth={true}>
