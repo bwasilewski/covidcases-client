@@ -32,8 +32,6 @@ const Index = props => {
     setGeo(geoResponse)
     setCovid(covidResponse)
     setDisallowLocation(false)
-    // console.log('Location: ', geoResponse)
-    // console.log('Covid: ', covidResponse)
     const { county } = covidResponse.cases
     setDeaths(county.deaths)
     setRecovered(county.recovered)
