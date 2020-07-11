@@ -80,7 +80,7 @@ const Index = props => {
           <Column></Column>
         </Columns>
       )}
-      { geo !== null && (
+      { geo && (
         <>
           <Title isSize="2">{ geo.address.county }, { geo.address.state }, { geo.address.country }</Title>
           <StateToggle onChange={handleSwitch} checked={viewByState} />
