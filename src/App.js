@@ -17,19 +17,17 @@ const history = createBrowserHistory()
 
 function App() {
   return (
-    <>
-      <GeoProvider>
-        <Helmet>
-          <link rel="icon" type="image/png" href="favicon.png" sizes="16x16" />
-        </Helmet>
-        <Router history={history}>
-          <Header />
-          <Route exact path="/" component={Index} />
-          <Route exact path="/about" component={About} />
-          <Footer />
-        </Router>
-      </GeoProvider>
-    </>
+    <GeoProvider>
+      <Helmet>
+        <link rel="icon" type="image/png" href="favicon.png" sizes="16x16" />
+      </Helmet>
+      <Router history={history}>
+        <Header />
+        <Route exact path="/" component={Index} />
+        <Route exact path="/about" component={About} />
+        <Footer />
+      </Router>
+    </GeoProvider>
   )
 }
 

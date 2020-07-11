@@ -33,6 +33,7 @@ const Index = props => {
     setCovid(covidResponse)
     setDisallowLocation(false)
     const { county } = covidResponse.cases
+    console.log(covidResponse)
     setDeaths(county.deaths)
     setRecovered(county.recovered)
     setConfirmed(county.confirmed)
@@ -40,14 +41,11 @@ const Index = props => {
     InitMap([position.coords.longitude, position.coords.latitude], 10)
   }
 
-  const locationFailure = error => setGeo(false)
+  const locationFailure = error => setGeo(null)
 
   const getLocation = () => navigator.geolocation.getCurrentPosition(locationSuccess, locationFailure, locationOptions)
 
-  const handleGlobalStats = response => {
-    setGeo(response)
-    // console.log('Global: ', response)
-  }
+  const handleGlobalStats = response => setGeo(response)
 
   const handleSwitch = checked => {
     setViewByState(checked)
@@ -71,7 +69,7 @@ const Index = props => {
       <Helmet>
         <title>covidcases.io</title>
       </Helmet>
-      { geo === false && (
+      { geo === null && (
         <Columns>
           <Column></Column>
           <Column isSize="1/3">
@@ -83,7 +81,7 @@ const Index = props => {
       { geo && (
         <>
           <Title isSize="2">{ geo.address.county }, { geo.address.state }, { geo.address.country }</Title>
-          <StateToggle onChange={handleSwitch} checked={viewByState} />
+          {/* <StateToggle onChange={handleSwitch} checked={viewByState} /> */}
           <Columns>
             <Column hasTextAlign="centered">
               <Card>
