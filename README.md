@@ -6,15 +6,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Todos
 
-[ ] 1. TODO: Double click map to update geolocation
-[ ] 2. TODO: Take address in place of zipcode if browser location is disabled
-[ ] 3. TODO: Account for international addresses
-[ ] 4. TODO: Display local news headlines
-[ ] 5. TODO: Dark mode toggle
-[ ] 6. TODO: Fix `Recovered` count
-[ ] 7. TODO: Add state-level stats
-[ ] 8. TODO: Store location in a cookie
-[ ] 9. TODO: Cookie warning 
+1. [ ] TODO: Double click map to update geolocation
+2. [ ] TODO: Take address in place of zipcode if browser location is disabled
+3. [ ] TODO: Account for international addresses
+4. [ ] TODO: Display local news headlines
+5. [ ] TODO: Dark mode toggle
+6. [ ] TODO: Fix `Recovered` count
+7. [ ] TODO: Add state-level stats
+8. [ ] TODO: Store location in a cookie
+9. [ ] TODO: Cookie warning 
 
 ## Available Scripts
 
