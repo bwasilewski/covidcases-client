@@ -80,9 +80,16 @@ const Index = props => {
       )}
       { geo && (
         <>
-          <Title isSize="2">{ geo.address.county }, { geo.address.state }, { geo.address.country }</Title>
+          <Title isSize="5">
+            { geo.address.county },<br />
+            { geo.address.state },<br /> 
+            { geo.address.country }
+          </Title>
           {/* <StateToggle onChange={handleSwitch} checked={viewByState} /> */}
           <Columns>
+            <Column>
+              <div id="map" style={{'width': '100%', 'height': '600px'}}><div id="popup"></div></div>
+            </Column>
             <Column hasTextAlign="centered">
               <Card>
                 Cases: { confirmed }
@@ -91,11 +98,12 @@ const Index = props => {
             <Column hasTextAlign="centered">
               <Card>Deaths: { deaths }</Card>
             </Column>
-            <Column hasTextAlign="centered">
-              <Card>Recovered: { recovered }</Card>
-            </Column>
+            { recovered > 0 && (
+              <Column hasTextAlign="centered">
+                <Card>Recovered: { recovered }</Card>
+              </Column>
+            )}
           </Columns>
-          <div id="map" style={{'width': '100%', 'height': '600px'}}><div id="popup"></div></div>
         </>
       )}
     </Page>
