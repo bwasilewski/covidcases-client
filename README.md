@@ -11,6 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 [ ] 5. TODO: Dark mode toggle
 [ ] 6. TODO: Fix `Recovered` count
 [ ] 7. TODO: Add state-level stats
+[ ] 8. TODO: Store location in a cookie
+[ ] 9. TODO: Cookie warning 
 
 ## Available Scripts
 
