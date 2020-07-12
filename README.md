@@ -6,6 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Todos
 
+* [ ] TODO: Fix `react-hooks/exhaustive-deps` warnings
 * [ ] TODO: Double click map to update geolocation
 * [x] TODO: Take zipcode if browser location is disabled
 * [ ] TODO: Account for international addresses
