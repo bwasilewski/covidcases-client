@@ -1,18 +1,19 @@
 import axios from 'axios'
 
+const BASEURL = process.env.REACT_APP_BACKEND 
+
 export const geoLocateUser = position => {
   return new Promise((resolve, reject) => {
-    axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}&addressdetails=1`)
+    axios.get(`${BASEURL}/geolocate?lat=${position.coords.latitude}&lng=${position.coords.longitude}`)
       .then(response => resolve(response.data))
       .catch(error => reject(error)) 
   })
 }
 
-export const geoLocateByZip = zipcode => {
+export const geoLocateByZip = zip => {
   return new Promise(async (resolve, reject) => {
     try {
-      const locationData = await axios.get(`https://api.covidnow.com/v1/local/geocoding?address=${zipcode}`)
-      console.log('Loc Data: ', locationData)
+      const locationData = await axios.get(`${BASEURL}/locatebyzip?zip=${zip}`)
       const geoData = await geoLocateUser({
         coords: { 
           latitude: locationData.data.lat,
