@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Todos
 
 1. [ ] TODO: Double click map to update geolocation
-2. [ ] TODO: Take address in place of zipcode if browser location is disabled
+2. [*] TODO: Take zipcode if browser location is disabled
 3. [ ] TODO: Account for international addresses
 4. [ ] TODO: Display local news headlines
 5. [ ] TODO: Dark mode toggle
