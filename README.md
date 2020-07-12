@@ -8,7 +8,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * [ ] TODO: Fix `react-hooks/exhaustive-deps` warnings
 * [ ] TODO: Double click map to update geolocation
-* [x] TODO: Take zipcode if browser location is disabled
 * [ ] TODO: Account for international addresses
 * [ ] TODO: Display local news headlines
 * [ ] TODO: Dark mode toggle
@@ -16,6 +15,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [ ] TODO: Add state-level stats
 * [ ] TODO: Store location in a cookie
 * [ ] TODO: Cookie warning 
+* [x] TODO: Set up prod environment on Netlify
+* [x] TODO: Take zipcode if browser location is disabled
 
 ## Available Scripts
 
