@@ -3,11 +3,7 @@ import {
   Card,
   CardHeader,
   CardHeaderTitle,
-  CardHeaderIcon,
-  CardContent,
-  CardImage,
-  CardFooter,
-  CardFooterItem } from 'bloomer'
+  CardContent } from 'bloomer'
 
 const CardComponent = props => {
   return (

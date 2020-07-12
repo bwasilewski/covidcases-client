@@ -2,17 +2,12 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   Container, 
-  Level,
-  LevelItem,
-  LevelLeft,
-  LevelRight,
   Navbar,
   NavbarBrand,
   NavbarMenu,
   NavbarStart,
   NavbarItem,
   NavbarEnd,
-  NavbarLink,
   Title } from 'bloomer'
   import { GeoContext } from '../contexts/geography'
 

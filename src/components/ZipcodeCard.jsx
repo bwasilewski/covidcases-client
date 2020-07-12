@@ -1,12 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Card from './Card'
 import {
-  Button,
   Field,
   Label,
   Control,
   Input } from 'bloomer'
-import { GeoContext } from '../contexts/geography'
 import { geoLocateByZip } from '../events'
 
 const ZipcodeCard = props => {

@@ -1,13 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Page from '../components/Page'
 import Card from '../components/Card'
-import GeoCard from '../components/GeoCard'
-import CovidCard from '../components/CovidCard'
-import StateToggle from '../components/StateToggle'
 import ZipcodeCard from '../components/ZipcodeCard'
-import { geoLocateUser, getCovidByAddress, getGlobalCovidStats } from '../events'
+import { geoLocateUser, getCovidByAddress } from '../events'
 import { InitMap } from '../events/maps'
-import { Button, Columns, Column, Title } from 'bloomer'
+import { Columns, Column, Title } from 'bloomer'
 import { Helmet } from 'react-helmet'
 
 import { GeoContext } from '../contexts/geography'
@@ -16,7 +13,6 @@ const Index = props => {
   const [geo, setGeo] = useContext(GeoContext)
   const [covid, setCovid] = useState(null)
   const [disallowLocation, setDisallowLocation] = useState(null)
-  const [viewByState, setViewByState] = useState(false)
   const [confirmed, setConfirmed] = useState(0)
   const [recovered, setRecovered] = useState(0)
   const [deaths, setDeaths] = useState(0)
@@ -45,21 +41,7 @@ const Index = props => {
 
   const getLocation = () => navigator.geolocation.getCurrentPosition(locationSuccess, locationFailure, locationOptions)
 
-  const handleGlobalStats = response => setGeo(response)
-
-  const handleSwitch = checked => {
-    setViewByState(checked)
-    if ( checked === true ) {
-      setDeaths(covid.cases.state.deaths)
-      setRecovered(covid.cases.state.recovered)
-      setConfirmed(covid.cases.state.confirmed)
-    } else {
-      setDeaths(covid.cases.county.deaths)
-      setRecovered(covid.cases.county.recovered)
-      setConfirmed(covid.cases.county.confirmed)
-    }
-  }
-
+  
   useEffect(() => {
     navigator.geolocation && getLocation()
   }, [])

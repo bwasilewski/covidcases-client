@@ -1,7 +1,6 @@
 import { fromLonLat } from 'ol/proj'
 import Map from 'ol/Map'
 import View from 'ol/View'
-import GeoJSON from 'ol/format/GeoJSON'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
 import OSM from 'ol/source/OSM'

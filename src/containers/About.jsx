@@ -1,10 +1,5 @@
 import React from 'react'
 import Page from '../components/Page'
-import PageHeader from '../components/PageHeader'
-import { 
-  Section,
-  Title 
-} from 'bloomer'
 
 const About = props => {
   return (
