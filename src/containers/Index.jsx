@@ -87,7 +87,7 @@ const Index = props => {
           </Title>
           {/* <StateToggle onChange={handleSwitch} checked={viewByState} /> */}
           <Columns>
-            <Column>
+            <Column isSize="1/2">
               <div id="map" style={{'width': '100%', 'height': '600px'}}><div id="popup"></div></div>
             </Column>
             <Column hasTextAlign="centered">
