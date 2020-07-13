@@ -14,7 +14,6 @@ export const geoLocateByZip = zip => {
   return new Promise(async (resolve, reject) => {
     try {
       const locationData = await axios.get(`${BASEURL}/locatebyzip?zip=${zip}`)
-      console.log('Location data: ', locationData)
       const geoData = await geoLocateUser({
         coords: { 
           latitude: locationData.data.lat,
