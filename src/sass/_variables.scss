@@ -1,0 +1,33 @@
+// Color Palette
+
+$black: #000000;
+$charleston-green: #2C302E;
+$davys-grey: #474A48;
+$spanish-grey: #909590;
+$granny-smith-apple: #9AE19D;
+
+
+
+// Global Variables
+
+$scheme-main: $charleston-green;
+$body-background-color: $charleston-green;
+$family-primary: sans-serif;
+$text: $spanish-grey;
+$weight-normal: normal;
+$family-code: monospace;
+$background: $body-background-color;
+$text-strong: $granny-smith-apple;
+$weight-bold: bold;
+$link: $granny-smith-apple;
+$link-hover: $link;
+$code-background: $black;
+$code: $link;
+
+
+
+// Components
+
+$card-background-color: $davys-grey;
+$footer-background-color: $scheme-main;
+
