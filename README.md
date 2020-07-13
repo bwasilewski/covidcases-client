@@ -6,15 +6,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Todos
 
+* [ ] TODO: Choose a font
 * [ ] TODO: Fix `react-hooks/exhaustive-deps` warnings
 * [ ] TODO: Double click map to update geolocation
 * [ ] TODO: Account for international addresses
 * [ ] TODO: Display local news headlines
-* [ ] TODO: Dark mode toggle
 * [ ] TODO: Fix `Recovered` count
 * [ ] TODO: Add state-level stats
 * [ ] TODO: Store location in a cookie
 * [ ] TODO: Cookie warning 
+* [x] TODO: Apply a dark color scheme
 * [x] TODO: Connect backend
 * [x] TODO: Set up prod environment on Netlify
 * [x] TODO: Take zipcode if browser location is disabled
