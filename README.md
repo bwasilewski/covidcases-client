@@ -15,6 +15,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [ ] TODO: Add state-level stats
 * [ ] TODO: Store location in a cookie
 * [ ] TODO: Cookie warning 
+* [x] TODO: Connect backend
 * [x] TODO: Set up prod environment on Netlify
 * [x] TODO: Take zipcode if browser location is disabled
 
