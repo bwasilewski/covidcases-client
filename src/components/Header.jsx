@@ -20,7 +20,7 @@ const AppFooter = props => {
         <Navbar>
           <NavbarBrand>
             <NavbarItem>
-              <Link to="/"><Title isSize="4">{ process.env.REACT_APP_TITLE }</Title></Link>
+              <Link to="/"><Title isSize="4">CovidCases.io</Title></Link>
             </NavbarItem>
           </NavbarBrand>
           <NavbarMenu>
