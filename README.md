@@ -7,8 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Todos
 
 * [ ] TODO: Fix `react-hooks/exhaustive-deps` warnings
-* [ ] TODO: Double click map to update geolocation
-* [ ] TODO: Account for international addresses
+* [ ] TODO: Update location when map center changes
+* [ ] TODO: Click location in navbar to change location
 * [ ] TODO: Display local news headlines
 * [ ] TODO: Fix `Recovered` count
 * [ ] TODO: Add state-level stats
