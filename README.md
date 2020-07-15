@@ -14,6 +14,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [ ] TODO: Add state-level stats
 * [ ] TODO: Store location in a cookie
 * [ ] TODO: Cookie warning 
+* [x] TODO: Fix workflows for geolocated and non-geolocated users
 * [x] TODO: Choose a font
 * [x] TODO: Apply a dark color scheme
 * [x] TODO: Connect backend
