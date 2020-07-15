@@ -1,0 +1,17 @@
+.ol-attribution {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 2px 8px;
+	border-radius: 3px 0 0 0;
+	background-color: #2C302E;
+	border-color: #dbdbdb;
+	border-width: 1px;
+	color: #9AE19D;
+	cursor: pointer;
+	opacity: .6;
+
+	button {
+		display: none;
+	}
+}

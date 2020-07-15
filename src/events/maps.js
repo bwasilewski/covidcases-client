@@ -10,10 +10,14 @@ import Point from 'ol/geom/Point'
 import Icon from 'ol/style/Icon'
 import Style from 'ol/style/Style'
 import Overlay from 'ol/Overlay'
+import { defaults as defaultControls, Attribution } from 'ol/control'
+
 
 
 export const InitMap = (center, zoom) => {
   document.getElementById('map').innerHTML = ''
+
+	const attribution = new Attribution({ collapsible: false })
 
   const iconFeature = new Feature({
     geometry: new Point(fromLonLat(center)),
@@ -69,6 +73,7 @@ export const InitMap = (center, zoom) => {
       // statesLayer,
       iconLayer,
     ],
+		controls: defaultControls({attribution: false}).extend([attribution]),
     view: new View({
       center: fromLonLat(center),
       zoom: zoom
