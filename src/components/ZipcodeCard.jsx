@@ -5,32 +5,11 @@ import {
   Label,
   Control,
   Input } from 'bloomer'
-import { geoLocateByZip } from '../events'
 
-const ZipcodeCard = props => {
-  const handleGeo = response => {
-    props.success({
-      coords: {
-        latitude: parseFloat(response.lat),
-        longitude: parseFloat(response.lon)
-      }
-    })
-  }
-
-  const handleSubmit = ev => {
-    const { target } = ev
-    const { elements } = target
-    
-    ev.preventDefault()
-
-    geoLocateByZip(elements.namedItem('zipcode').value)
-      .then(response => handleGeo(response))
-      .catch(error => console.error(error))
-  }
-
+const ZipcodeCard = ({ submit }) => {
   return (
     <Card>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={submit}>
         <Field>
           <Label htmlFor="zipcode">Please enter your zipcode</Label>
           <Control>
