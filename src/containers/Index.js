@@ -14,6 +14,7 @@ const Index = props => {
   const [geo, setGeo] = useContext(GeoContext)
   const [covid, setCovid] = useState(null)
   const [loading, setLoading] = useContext(LoadingContext)
+  const [error, setError] = useState(null)
   const [noGeo, setNoGeo] = useState(false)
   const [confirmed, setConfirmed] = useState(0)
   const [recovered, setRecovered] = useState(0)
@@ -43,11 +44,13 @@ const Index = props => {
   const locationSuccess = async position => {
     setLoading(true)
     setNoGeo(false)
-    const geoResponse = await geoLocateUser(position)
+   
+		const geoResponse = await geoLocateUser(position)
     const covidResponse = await getCovidByAddress(geoResponse.display_name)
-    setGeo(geoResponse)
+    
+		setGeo(geoResponse)
     setCovid(covidResponse)
-    const { county } = covidResponse.cases
+		const { county } = covidResponse.cases
     setDeaths(county.deaths)
     setRecovered(county.recovered)
     setConfirmed(county.confirmed)
@@ -61,6 +64,7 @@ const Index = props => {
     setNoGeo(true)
     setLoading(false)
 		// TODO: need to display the error message in some way 
+		setError(error)
   }
 
   useEffect(() => {
