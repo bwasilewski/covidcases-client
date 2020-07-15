@@ -105,9 +105,7 @@ const Index = props => {
       { geo && (
         <>
           <Title isSize="5">
-            { geo.address.county },<br />
-            { geo.address.state },<br /> 
-            { geo.address.country }
+						county: { geo.address.county }, state: { geo.address.state }
           </Title>
           {/* <StateToggle onChange={handleSwitch} checked={viewByState} /> */}
           <Columns>
