@@ -4,6 +4,7 @@
 
 ## Todos
 
+* [ ] TODO: We need a 404 page
 * [ ] TODO: Fix `react-hooks/exhaustive-deps` warnings
 * [ ] TODO: Update location when map center changes
 * [ ] TODO: Click location in navbar to change location
