@@ -2,8 +2,6 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/158f26e7-38d3-4da4-a62f-dbdee68dca72/deploy-status)](https://app.netlify.com/sites/covidcases-client/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Todos
 
 * [ ] TODO: Fix `react-hooks/exhaustive-deps` warnings
@@ -20,6 +18,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * [x] TODO: Connect backend
 * [x] TODO: Set up prod environment on Netlify
 * [x] TODO: Take zipcode if browser location is disabled
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
