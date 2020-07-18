@@ -4,7 +4,6 @@
 
 ## Todos
 
-* [ ] `About` route is broken 
 * [ ] We need a 404 page
 * [ ] Add a redirects page for Netlify
 * [ ] Fix `react-hooks/exhaustive-deps` warnings
@@ -15,6 +14,7 @@
 * [ ] Add state-level stats
 * [ ] Store location in a cookie
 * [ ] Cookie warning 
+* [x] `About` route is broken 
 * [x] Fix workflows for geolocated and non-geolocated users
 * [x] Choose a font
 * [x] Apply a dark color scheme
