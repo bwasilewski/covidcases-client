@@ -4,21 +4,23 @@
 
 ## Todos
 
-* [ ] TODO: We need a 404 page
-* [ ] TODO: Fix `react-hooks/exhaustive-deps` warnings
-* [ ] TODO: Update location when map center changes
-* [ ] TODO: Click location in navbar to change location
-* [ ] TODO: Display local news headlines
-* [ ] TODO: Fix `Recovered` count
-* [ ] TODO: Add state-level stats
-* [ ] TODO: Store location in a cookie
-* [ ] TODO: Cookie warning 
-* [x] TODO: Fix workflows for geolocated and non-geolocated users
-* [x] TODO: Choose a font
-* [x] TODO: Apply a dark color scheme
-* [x] TODO: Connect backend
-* [x] TODO: Set up prod environment on Netlify
-* [x] TODO: Take zipcode if browser location is disabled
+* [ ] `About` route is broken 
+* [ ] We need a 404 page
+* [ ] Add a redirects page for Netlify
+* [ ] Fix `react-hooks/exhaustive-deps` warnings
+* [ ] Update location when map center changes
+* [ ] Click location in navbar to change location
+* [ ] Display local news headlines
+* [ ] Fix `Recovered` count
+* [ ] Add state-level stats
+* [ ] Store location in a cookie
+* [ ] Cookie warning 
+* [x] Fix workflows for geolocated and non-geolocated users
+* [x] Choose a font
+* [x] Apply a dark color scheme
+* [x] Connect backend
+* [x] Set up prod environment on Netlify
+* [x] Take zipcode if browser location is disabled
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
