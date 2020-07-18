@@ -4,7 +4,6 @@
 
 ## Todos
 
-* [ ] We need a 404 page
 * [ ] Add a redirects page for Netlify
 * [ ] Fix `react-hooks/exhaustive-deps` warnings
 * [ ] Update location when map center changes
@@ -14,6 +13,7 @@
 * [ ] Add state-level stats
 * [ ] Store location in a cookie
 * [ ] Cookie warning 
+* [x] We need a 404 page
 * [x] `About` route is broken 
 * [x] Fix workflows for geolocated and non-geolocated users
 * [x] Choose a font
