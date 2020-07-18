@@ -2,6 +2,7 @@ import React from 'react'
 import dotenv from 'dotenv'
 import About from './containers/About'
 import Index from './containers/Index'
+// import Page404 from './containers/404'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -24,6 +25,7 @@ function App() {
 					<Header />
 					<Route exact path="/" component={Index} />
 					<Route exact path="/about" component={About} />
+					{/* <Route component={Page404} /> */}
 					<Footer />
 				</Router>
 			</GeoProvider>
