@@ -2,10 +2,10 @@ import React from 'react'
 import dotenv from 'dotenv'
 import About from './containers/About'
 import Index from './containers/Index'
-// import Page404 from './containers/404'
+import LostUser from './containers/LostUser'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { Helmet } from 'react-helmet'
 
@@ -23,9 +23,11 @@ function App() {
 				</Helmet>
 				<Router history={history}>
 					<Header />
-					<Route exact path="/" component={Index} />
-					<Route exact path="/about" component={About} />
-					{/* <Route component={Page404} /> */}
+					<Switch>
+						<Route exact path="/" component={Index} />
+						<Route exact path="/about" component={About} />
+						<Route component={LostUser} />
+					</Switch>
 					<Footer />
 				</Router>
 			</GeoProvider>
