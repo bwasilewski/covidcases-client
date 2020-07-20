@@ -46,18 +46,18 @@ const Index = props => {
 		setLoading(true)
 		setNoGeo(false)
 
-		const geoResponse = await geoLocateUser(position)
-		const covidResponse = await getCovidByAddress(geoResponse.display_name)
+		//const geoResponse = await geoLocateUser(position)
+		/*const covidResponse = await getCovidByAddress(geoResponse.display_name)*/
 
-		setGeo(geoResponse)
-		setCovid(covidResponse)
-		const { county } = covidResponse.cases
-		setDeaths(county.deaths)
-		setRecovered(county.recovered)
-		setConfirmed(county.confirmed)
-		setLoading(false)
+		/*setGeo(geoResponse)*/
+		/*setCovid(covidResponse)*/
+		//const { county } = covidResponse.cases
+		//setDeaths(county.deaths)
+		//setRecovered(county.recovered)
+		//setConfirmed(county.confirmed)
+		//setLoading(false)
 
-		InitMap([position.coords.longitude, position.coords.latitude], 10)
+		/*InitMap([position.coords.longitude, position.coords.latitude], 10)*/
 	}
 
 	const locationFailure = error => {
