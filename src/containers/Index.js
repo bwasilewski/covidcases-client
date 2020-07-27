@@ -9,6 +9,7 @@ import { Columns, Column, Title } from 'bloomer'
 import { Helmet } from 'react-helmet'
 
 import { GeoContext, LoadingContext } from '../contexts'
+import { getLocation } from '../events/locations'
 
 const Index = props => {
 	const [geo, setGeo] = useContext(GeoContext)
@@ -16,6 +17,9 @@ const Index = props => {
 	const [loading, setLoading] = useContext(LoadingContext)
 	const [error, setError] = useState(null)
 	const [noGeo, setNoGeo] = useState(false)
+	const [province, setProvince] = useState(null)
+	const [country, setCountry] = useState(null)
+	const [admin2, setAdmin2] = useState(null)
 	const mapStyles = { width: '100%', height: '200px' }
 
 	const handleGeo = response => {
@@ -42,11 +46,16 @@ const Index = props => {
 	const locationSuccess = async position => {
 		setLoading(true)
 		setNoGeo(false)
-
+	
 		const geoResponse = await geoLocateUser(position)
 		const covidResponse = await getCovidByAddress(geoResponse.display_name)
-
+		const { address } = geoResponse		
 		console.log(geoResponse)
+		const stateResponse = await getLocation(address.country, address.state)
+		const countryResponse = await getLocation(address.country)
+
+		console.log(stateResponse)
+		console.log(countryResponse)
 
 		setGeo(geoResponse)
 		setCovid(covidResponse)
@@ -54,8 +63,8 @@ const Index = props => {
 		setLoading(false)
 
 		InitMap('map_county', 'popup_county', [position.coords.longitude, position.coords.latitude], 10)
-		InitMap('map_state', 'popup_state', [position.coords.longitude, position.coords.latitude], 5)
-		InitMap('map_country', 'popup_country', [position.coords.longitude, position.coords.latitude], 2)
+		InitMap('map_state', 'popup_state', [stateResponse.Long_, stateResponse.Lat], 5.5)
+		InitMap('map_country', 'popup_country', [countryResponse.Long_, countryResponse.Lat], 2.5)
 	}
 
 	const locationFailure = error => {
