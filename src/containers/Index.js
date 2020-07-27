@@ -16,12 +16,9 @@ const Index = props => {
 	const [loading, setLoading] = useContext(LoadingContext)
 	const [error, setError] = useState(null)
 	const [noGeo, setNoGeo] = useState(false)
-	const [confirmed, setConfirmed] = useState(0)
-	const [recovered, setRecovered] = useState(0)
-	const [deaths, setDeaths] = useState(0)
+	const mapStyles = { width: '100%', height: '200px' }
 
 	const handleGeo = response => {
-		console.log(response)
 		locationSuccess({
 			coords: {
 				latitude: parseFloat(response.lat),
@@ -49,17 +46,16 @@ const Index = props => {
 		const geoResponse = await geoLocateUser(position)
 		const covidResponse = await getCovidByAddress(geoResponse.display_name)
 
+		console.log(geoResponse)
+
 		setGeo(geoResponse)
 		setCovid(covidResponse)
-		console.log('Covid:')
-		console.log(covidResponse)
 		const { county } = covidResponse.cases
-		setDeaths(county.deaths)
-		setRecovered(county.recovered)
-		setConfirmed(county.confirmed)
 		setLoading(false)
 
-		InitMap([position.coords.longitude, position.coords.latitude], 10)
+		InitMap('map_county', 'popup_county', [position.coords.longitude, position.coords.latitude], 10)
+		InitMap('map_state', 'popup_state', [position.coords.longitude, position.coords.latitude], 5)
+		InitMap('map_country', 'popup_country', [position.coords.longitude, position.coords.latitude], 2)
 	}
 
 	const locationFailure = error => {
@@ -106,27 +102,31 @@ const Index = props => {
 			{loading === true && <Loading />}
 			{geo && (
 				<>
-					<Title isSize="5">
-						county: {geo.address.county}, state: {geo.address.state}
-					</Title>
-					{/* <StateToggle onChange={handleSwitch} checked={viewByState} /> */}
 					<Columns>
-						<Column isSize="1/2">
-							<div id="map" style={{ width: '100%', height: '600px' }}>
-								<div id="popup"></div>
+						<Column isSize="1/3">
+							<div id="map_county" style={mapStyles}>
+								<div id="popup_county"></div>
 							</div>
+							<Card>
+								<Title isSize="5">{ geo.address.county }</Title>
+							</Card>
 						</Column>
-						<Column hasTextAlign="centered">
-							<Card>Cases: {confirmed}</Card>
+						<Column isSize="1/3">
+							<div id="map_state" style={mapStyles}>
+								<div id="popup_state"></div>
+							</div>
+							<Card>
+								<Title isSize="5">{ geo.address.state }</Title>
+							</Card>
 						</Column>
-						<Column hasTextAlign="centered">
-							<Card>Deaths: {deaths}</Card>
+						<Column isSize="1/3">
+							<div id="map_country" style={mapStyles}>
+								<div id="popup_country"></div>
+							</div>
+							<Card>
+								<Title isSize="5">{ geo.address.country }</Title>
+							</Card>
 						</Column>
-						{recovered > 0 && (
-							<Column hasTextAlign="centered">
-								<Card>Recovered: {recovered}</Card>
-							</Column>
-						)}
 					</Columns>
 				</>
 			)}

@@ -13,9 +13,8 @@ import Overlay from 'ol/Overlay'
 import { defaults as defaultControls, Attribution } from 'ol/control'
 
 
-
-export const InitMap = (center, zoom) => {
-  document.getElementById('map').innerHTML = ''
+export const InitMap = (targetID, popupID, center, zoom) => {
+  document.getElementById(targetID).innerHTML = ''
 
 	const attribution = new Attribution({ collapsible: false })
 
@@ -35,7 +34,7 @@ export const InitMap = (center, zoom) => {
   })
 
   const popup = new Overlay({
-    element: document.getElementById('popup'),
+    element: document.getElementById(popupID),
     positioning: 'bottom-center',
     stopEvent: false,
     offset: [0, -50]
@@ -67,7 +66,7 @@ export const InitMap = (center, zoom) => {
 //  });
   
   const map = new Map({
-    target: 'map',
+    target: targetID,
     layers: [
       rasterLayer,
       // statesLayer,

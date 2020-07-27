@@ -42,7 +42,8 @@ export const getCovidByAddress = address => {
 export const getGlobalCovidStats = () => {
 	return new Promise((resolve, reject) => {
 		axios
-			.get(`https://api.covidnow.com/v1/global/stats`)
+			.get(`${BASEURL}/jhu/globalbydate`)
+			// .get(`https://api.covidnow.com/v1/global/stats`)
 			.then(response => resolve(response.data))
 			.catch(error => reject(error))
 	})
