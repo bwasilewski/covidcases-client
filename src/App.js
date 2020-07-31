@@ -4,7 +4,6 @@ import About from './containers/About'
 import Index from './containers/Index'
 import LostUser from './containers/LostUser'
 import Footer from './components/Footer'
-import Header from './components/Header'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { Helmet } from 'react-helmet'
@@ -22,7 +21,6 @@ function App() {
 					<link rel="icon" type="image/png" href="favicon.png" sizes="16x16" />
 				</Helmet>
 				<Router history={history}>
-					<Header />
 					<Switch>
 						<Route exact path="/" component={Index} />
 						<Route exact path="/about" component={About} />
