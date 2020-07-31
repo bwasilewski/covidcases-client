@@ -8,27 +8,32 @@ import { InitMap } from '../events/maps'
 import { Columns, Column, Title } from 'bloomer'
 import { Helmet } from 'react-helmet'
 
-import { GeoContext, LoadingContext } from '../contexts'
+import { GeoContext } from '../contexts'
 import { getLocation } from '../events/locations'
 
 const Index = props => {
+	const [latLong, setLatLong] = useState(null)
 	const [geo, setGeo] = useContext(GeoContext)
+	const [declined, setDeclined] = useState(false)
 	const [covid, setCovid] = useState(null)
-	const [loading, setLoading] = useContext(LoadingContext)
-	const [error, setError] = useState(null)
-	const [noGeo, setNoGeo] = useState(false)
+	const [loading, setLoading] = useState(false)
 	const [province, setProvince] = useState(null)
-	const [country, setCountry] = useState(null)
-	const [admin2, setAdmin2] = useState(null)
+	const [region, setRegion] = useState(null)
 	const mapStyles = { width: '100%', height: '200px' }
+	const latLongOpts = {
+		enableHighAccuracy: true,
+		timeout: 5000,
+		maximumAge: 0
+	}
 
-	const handleGeo = response => {
-		locationSuccess({
+	const zipSuccess = response => {
+		setLatLong({
 			coords: {
 				latitude: parseFloat(response.lat),
-				longitude: parseFloat(response.lon),
-			},
+				longitude: parseFloat(response.lon)
+			}
 		})
+		setLoading(false)
 	}
 
 	const zipcodeSubmit = ev => {
@@ -39,67 +44,56 @@ const Index = props => {
 		setLoading(true)
 
 		geoLocateByZip(elements.namedItem('zipcode').value)
-			.then(response => handleGeo(response))
+			.then(response => zipSuccess(response))
 			.catch(error => console.error(error))
 	}
 
-	const locationSuccess = async position => {
-		setLoading(true)
-		setNoGeo(false)
-	
-		const geoResponse = await geoLocateUser(position)
-		const covidResponse = await getCovidByAddress(geoResponse.display_name)
-		const { address } = geoResponse		
-		console.log(geoResponse)
-		const stateResponse = await getLocation(address.country, address.state)
-		const countryResponse = await getLocation(address.country)
-
-		console.log(stateResponse)
-		console.log(countryResponse)
-
-		setGeo(geoResponse)
-		setCovid(covidResponse)
-		const { county } = covidResponse.cases
-		setLoading(false)
-
-		InitMap('map_county', 'popup_county', [position.coords.longitude, position.coords.latitude], 10)
-		InitMap('map_state', 'popup_state', [stateResponse.Long_, stateResponse.Lat], 5.5)
-		InitMap('map_country', 'popup_country', [countryResponse.Long_, countryResponse.Lat], 2.5)
-	}
-
-	const locationFailure = error => {
-		setGeo(null)
-		setNoGeo(true)
-		setLoading(false)
-		// TODO: need to display the error message in some way
-		setError(error)
-	}
-
 	useEffect(() => {
-		if (navigator.geolocation) {
-			// browser is capable of geolocation
-			// let's ask permission for that data
+		console.log('render')
+		const latLongSuccess = position => { setLatLong(position) }
+		const latLongFailure = position => { setGeo(null) }
+		const fetchLatLong = () => {
 			navigator.geolocation.getCurrentPosition(
-				locationSuccess,
-				locationFailure,
-				{
-					enableHighAccuracy: true,
-					timeout: 5000,
-					maximumAge: 0,
-				}
+				latLongSuccess, latLongFailure, latLongOpts	
 			)
-		} else {
-			// browser does not support geolocation
-			setNoGeo(true)
 		}
-	}, [])
+
+		const fetchGeo = async () => {
+			setLoading(true)
+			const geoResponse = await geoLocateUser(latLong)
+			const covidResponse = await getCovidByAddress(geoResponse.display_name)
+			const { address } = geoResponse		
+			const stateResponse = await getLocation(address.country, address.state)
+			const countryResponse = await getLocation(address.country)
+			setGeo(geoResponse)
+			setCovid(covidResponse)
+			setProvince(stateResponse)
+			setRegion(countryResponse)
+			setLoading(false)
+		}
+
+		if ( latLong === null ) {
+			if ( navigator.geolocation ) {
+				fetchLatLong()			
+			} else {
+				setDeclined(true)
+			}
+		} else if ( latLong && geo === null ) {
+			fetchGeo()	
+		}
+
+		// cleanup here
+		return () => {
+
+		}
+	}, [declined, geo, latLong, latLongOpts, setGeo])
 
 	return (
-		<Page>
+		<Page geo={geo}>
 			<Helmet>
 				<title>covidcases.io</title>
 			</Helmet>
-			{noGeo === true && loading === false && (
+			{geo === null && loading === false && (
 				<Columns>
 					<Column></Column>
 					<Column isSize="1/3">
