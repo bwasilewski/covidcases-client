@@ -1,7 +1,6 @@
 import React from 'react'
 import Page from '../components/Page'
 import { Title } from 'bloomer'
-import { Link } from 'react-router-dom'
 
 const LostUser = ({history}) => {
 	const handleBack = () => {
