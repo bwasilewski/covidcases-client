@@ -3,6 +3,7 @@ import Page from '../components/Page'
 import Card from '../components/Card'
 import Loading from '../components/Loading'
 import ZipcodeCard from '../components/ZipcodeCard'
+import Location from '../components/Location'
 import { geoLocateUser, getCovidByAddress, geoLocateByZip } from '../events'
 import { InitMap } from '../events/maps'
 import { Columns, Column, Title } from 'bloomer'
@@ -106,30 +107,9 @@ const Index = props => {
 			{geo && (
 				<>
 					<Columns>
-						<Column isSize="1/3">
-							<div id="map_county" style={mapStyles}>
-								<div id="popup_county"></div>
-							</div>
-							<Card>
-								<Title isSize="5">{ geo.address.county }</Title>
-							</Card>
-						</Column>
-						<Column isSize="1/3">
-							<div id="map_state" style={mapStyles}>
-								<div id="popup_state"></div>
-							</div>
-							<Card>
-								<Title isSize="5">{ geo.address.state }</Title>
-							</Card>
-						</Column>
-						<Column isSize="1/3">
-							<div id="map_country" style={mapStyles}>
-								<div id="popup_country"></div>
-							</div>
-							<Card>
-								<Title isSize="5">{ geo.address.country }</Title>
-							</Card>
-						</Column>
+						<Location label={geo.address.county} styles={mapStyles} />						
+						<Location label={geo.address.state} styles={mapStyles} />						
+						<Location label={geo.address.country} styles={mapStyles} />						
 					</Columns>
 				</>
 			)}
